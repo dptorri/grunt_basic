@@ -1,17 +1,10 @@
 module.exports = function(grunt){
-//Task: add_num ; adds 2 numbers and handles NaN cases
-    grunt.registerTask('add_num', function(first, second){
-        var result = Number(first) + Number(second);
-            if(isNaN(Number(first)) || isNaN(Number(second)) ){
-                grunt.fatal('Both parameters must be numbers.');
-                }
-            grunt.log.writeln(first + ' + ' + second + ' = ' + result);
-    });
-//Task: say_hi ; says Hi given a variable $grunt say_hi:Daniel
-    grunt.registerTask('say_hi', function(name){
-        grunt.log.writeln('Hi '+name+' good to meet you!');
-    });
-//Task: chained unnamed task displays say_hi and add_num
-        grunt.registerTask('default', ['say_hi:Daniel', 'add_num:2:3']);
+
+grunt.registerTask('temps_F_C','converts °F to °C and °C to °F for a number given.', function(num){
+    var result = Number(num);
     
-    }
+    grunt.log.writeln('If you enter a °C temperature of '+result+'the °F value would be'+((result*9)/5)+32);
+    grunt.log.writeln('but if '+result+'is in °F, then the value in °C would be'+((result-32)*5)/9);
+ });
+}
+ 
